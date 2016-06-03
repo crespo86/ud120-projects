@@ -24,11 +24,11 @@ def parseOutText(f):
     if len(content) > 1:
         ### remove punctuation
         text_string = content[1].translate(str.maketrans("", "", string.punctuation))
-
+        text_string = text_string.strip().split()
         ### project part 2: comment out the line below
         stemmer = SnowballStemmer("english")
         words = []
-        for word in text_string.split(" "):
+        for word in text_string:
             if len(word) > 1:
 
                 stemed = stemmer.stem(word)

@@ -49,8 +49,8 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
 
         for a in ["sara", "shackleton", "chris", "germani"]:
             emaildata = emaildata.replace(a, "")
-            emaildata = emaildata.replace("\n", " ")
-            emaildata = emaildata.replace("  ", " ")
+#            emaildata = emaildata.replace("\n", " ")
+#            emaildata = emaildata.replace("  ", " ")
 
         word_data.append(emaildata)
 
@@ -71,7 +71,12 @@ pickle.dump( word_data, open("your_word_data.pkl", "wb") )
 pickle.dump( from_data, open("your_email_authors.pkl", "wb") )
 
 
+from sklearn.feature_extraction.text import TfidfVectorizer
+vect = TfidfVectorizer(stop_words='english')
+lof = vect.fit(word_data)
+trouble_word = lof.get_feature_names()
 
+print(trouble_word[34597])
 
 
 ### in Part 4, do TfIdf vectorization here
