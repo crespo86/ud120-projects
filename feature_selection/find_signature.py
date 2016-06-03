@@ -21,6 +21,7 @@ vectorizer = TfidfVectorizer(sublinear_tf=True, max_df=0.5,
                              stop_words='english')
 features_train = vectorizer.fit_transform(features_train)
 features_test  = vectorizer.transform(features_test).toarray()
+print ("signiture word: " + str(vectorizer.get_feature_names()[21323]))
 
 ### a classic way to overfit is to use a small number
 ### of data points and a large number of features
@@ -40,18 +41,15 @@ from sklearn.metrics import accuracy_score
 pred = clf.predict(features_test)
 print("Get accuracy score: " + str(accuracy_score(pred, labels_test)))
 
-print(clf)
 
-'''
 importances = clf.feature_importances_
 importance_list = []
-index =-1
+index = 0
 num =[]
 for feature in importances:
-	index += 1
 	if feature >=0.2:
 		importance_list.append(feature)
 		num.append(index)
+	index += 1
 
 print (importance_list, num)
-'''

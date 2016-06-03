@@ -47,7 +47,7 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         emaildata = parseOutText(email)
         email.close()
 
-        for a in ["sara", "shackleton", "chris", "germani"]:
+        for a in ["sara", "shackleton", "chris", "germani", "sshacklensf", "cgermannsf" ]:
             emaildata = emaildata.replace(a, "")
 #            emaildata = emaildata.replace("\n", " ")
 #            emaildata = emaildata.replace("  ", " ")
